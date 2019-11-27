@@ -6,4 +6,7 @@ package com.example.demo.test.Base;
  * @Author cly
  **/
 public class TestJDKLambda {
+    public static void main(String[] args) {
+        System.out.println("chenlinya");
+    }
 }

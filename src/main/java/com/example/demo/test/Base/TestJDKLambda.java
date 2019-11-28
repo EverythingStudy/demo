@@ -8,5 +8,6 @@ package com.example.demo.test.Base;
 public class TestJDKLambda {
     public static void main(String[] args) {
         System.out.println("chenlinya");
+        System.out.println("get");
     }
 }

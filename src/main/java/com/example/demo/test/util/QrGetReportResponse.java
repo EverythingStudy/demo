@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.util;
+package com.example.demo.test.util;
 
 import java.util.List;
 

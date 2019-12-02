@@ -1,4 +1,4 @@
-package com.util;
+package com.example.demo.test.util;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;

@@ -1,4 +1,4 @@
-package com.util;
+package com.example.demo.test.util;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -10,8 +10,6 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-
-import com.bean.UploadFileItem;
 
 public class HttpPostEmulator {
 	// 每个post参数之间的分隔。随意设定，只要不会和其他的字符串重复即可。
@@ -25,8 +23,7 @@ public class HttpPostEmulator {
 	 * @author lennon
 	 * @param serverUrl
 	 *            上传的api
-	 * @param json
-	 *            post上传的文本信息
+	 * @param post上传的文本信息
 	 * @param filesToBeUploaded
 	 *            上传的文件/图片信息
 	 * @return

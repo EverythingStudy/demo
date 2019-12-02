@@ -1,4 +1,4 @@
-package com.util;
+package com.example.demo.test.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -9,8 +9,6 @@ import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 
 import com.alibaba.fastjson.JSONObject;
-import org.dcm4che3.util.ByteUtils;
-//import org.json.JSONObject;
 
 /**
  * 获取HTTP请求信息
@@ -64,23 +62,4 @@ public class HttpServletUtil {
 		System.out.println("obj===" + obj.toString());
 		return obj;
 	}
-
-	public static String toUID(String root, UUID uuid) {
-		byte[] b17 = new byte[17];
-		ByteUtils.longToBytesBE(uuid.getMostSignificantBits(), b17, 1);
-		ByteUtils.longToBytesBE(uuid.getLeastSignificantBits(), b17, 9);
-		String uuidStr = new BigInteger(b17).toString();
-		int rootlen = root.length();
-		int uuidlen = uuidStr.length();
-		char[] cs = new char[rootlen + uuidlen + 1];
-		root.getChars(0, rootlen, cs, 0);
-		cs[rootlen] = '.';
-		uuidStr.getChars(0, uuidlen, cs, rootlen + 1);
-		return new String(cs);
-	}
-
-	public static void main(String[] args) {
-		System.out.println(toUID("1.3.6.1.4.1.49696", UUID.randomUUID()));
-	}
-
 }

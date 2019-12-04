@@ -14,5 +14,6 @@ public abstract  class TestAbstract {
     public void getPrice(){
         System.out.println("123元");
         getNme();
+        System.out.println();
     }
 }

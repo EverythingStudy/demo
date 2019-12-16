@@ -55,6 +55,7 @@ public class TestArrayList {
         listSort.sort(new Comparator<TestArrayList.Person>() {
             @Override
             public int compare(TestArrayList.Person o1, TestArrayList.Person o2) {
+
                 return o1.age-o2.age;
             }
         });
@@ -79,6 +80,8 @@ public class TestArrayList {
             System.out.println(listSort.indexOf(person));
         }
         //3.迭代器遍历删除才是正确的方式，理解一下迭代器源码
+        //当创建迭代器时实现AbstractList中iterator方法，实例化itr内部类，lastRet代表前一个对象位置，cursor代表next()之后对象位置
+        //remove()时 删除前一个lastRet位置的对象
         Iterator<TestArrayList.Person> iterator=listSort.iterator();
         while (iterator.hasNext()){
             if(iterator.next().getAge()==10){
@@ -139,5 +142,9 @@ public class TestArrayList {
          * @return void
          **/
         list.add("dd");
+    }
+    public void test(){
+        List<String> list=new ArrayList<>();
+        list.remove(1);
     }
 }

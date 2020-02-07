@@ -1,12 +1,14 @@
 package com.example.demo.test.Thread;
 
+import org.apache.tomcat.util.threads.InlineExecutorService;
 import org.apache.tomcat.util.threads.ThreadPoolExecutor;
+import org.junit.Test;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @Description
+ * @Description FurtureTask 获取线程结果get() 取消cacele()
  * @Date 2019/9/26 15:46
  * @Author cly
  **/
@@ -15,8 +17,15 @@ public class TestFutureTask {
         TestFutureTask testFutureTask=new TestFutureTask();
         testFutureTask.test();
     }
+    ExecutorService executorService=new ThreadPoolExecutor(2,10,0L, TimeUnit.SECONDS,new LinkedBlockingQueue<>(10));
+/**
+ * @Author cly
+ * @Description //TODO 把futureTask交给executorService执行
+ * @Date 15:55 2020/2/7
+ * @Param []
+ * @return void
+ **/
     public void test(){
-        ExecutorService executorService=new ThreadPoolExecutor(2,10,0L, TimeUnit.SECONDS,new LinkedBlockingQueue<>(10));
         AtomicInteger k=new AtomicInteger(0);
         for(;;){
            Thread thread= new Thread(new Runnable() {
@@ -25,8 +34,11 @@ public class TestFutureTask {
                     CallTest<String> callTest=new CallTest<>(k.get());
                     FutureTask<String> future= (FutureTask<String>) executorService.submit(callTest);
                     try {
-                        System.out.println("获取get");
-                        System.out.println(future.get());
+                        if(future.isDone()){
+                           // future.cancel(true);//取消
+                            System.out.println("获取get");
+                            System.out.println(future.get());//获取结果
+                        }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } catch (ExecutionException e) {
@@ -53,6 +65,26 @@ public class TestFutureTask {
        public String call() throws Exception {
             Thread.sleep(1000);
            return (String) Integer.toString(s);
+       }
+   }
+/**
+ * @Author cly
+ * @Description //TODO futureTask单独执行
+ * @Date 16:49 2020/2/7
+ * @Param []
+ * @return void
+ **/
+   @Test
+   public void testExecutor(){
+        FutureTask<Integer> futureTask=new FutureTask<Integer>(new CallTest<>(2));
+        futureTask.run();
+       try {
+           System.out.println(futureTask.get());
+       } catch (InterruptedException e) {
+           e.printStackTrace();
+           
+       } catch (ExecutionException e) {
+           e.printStackTrace();
        }
    }
 }

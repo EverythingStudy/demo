@@ -45,7 +45,9 @@ public class TestJDKStream {
         personList.add(new TestJDKStream.Person("ya",16));
     }
 
-
+    /**
+     *
+     */
     public void streamTest(){
         List<TestJDKStream.Person> list=new ArrayList<>();
         Stream<TestJDKStream.Person> person=TestJDKStream.personList.stream().filter(s->s.getAge()==10);
@@ -53,5 +55,6 @@ public class TestJDKStream {
         list=person.collect(Collectors.toList());
         System.out.println(list.size());
     }
+
 
 }

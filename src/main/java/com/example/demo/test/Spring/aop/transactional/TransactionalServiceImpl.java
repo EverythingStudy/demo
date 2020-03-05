@@ -22,9 +22,18 @@ import org.springframework.transaction.annotation.Transactional;
 public class TransactionalServiceImpl implements TransactionalService {
     @Autowired
     AdapterApiMapper adapterApiMapper;
+    /**
+     *
+     */
     @Autowired
     BackupMapper backupMapper;
-
+/**
+ * @Author cly
+ * @Description //TODO 注解使用spring 事务 
+ * @Date 17:23 2020/2/12
+ * @Param [backup, adapterApi]
+ * @return void
+ **/
     @Transactional(readOnly=false,propagation=Propagation.REQUIRED,isolation= Isolation.REPEATABLE_READ,rollbackFor = Exception.class)
     @Override
     public void addData(Backup backup,AdapterApi adapterApi) {

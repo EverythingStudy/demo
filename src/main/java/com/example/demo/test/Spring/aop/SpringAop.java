@@ -80,9 +80,10 @@ public class SpringAop {
      * @return 
      **/
     
-    @After("pointCutService()")
-    public void afterReturning() {
+    @AfterReturning(value = "pointCutService()",returning="name")
+    public void afterReturning(String name) {
         System.out.println("后置通知!如果切点方法执行出现异常就不执行.");
+        System.out.println("返回值=="+name);
     }
     /*
      * @Author cly

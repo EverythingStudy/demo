@@ -31,13 +31,6 @@ public class TestThreadPoolExcutor {
                     return "返回值";
                 }
             });
-//            try {
-//                System.out.println(futureTask.get());
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            } catch (ExecutionException e) {
-//                e.printStackTrace();
-//            }
         }
     }
 

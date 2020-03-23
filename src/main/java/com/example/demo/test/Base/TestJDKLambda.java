@@ -10,4 +10,10 @@ public class TestJDKLambda {
         System.out.println("chenlinya");
         System.out.println("get");
     }
+    public void someTing(String s){
+        System.out.println(s);
+    }
+    public void test(String s){
+        String key="";
+    }
 }

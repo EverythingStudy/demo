@@ -4,11 +4,11 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @Description
+ * @Description 并发工具CountDownLatch
  * @Date 2019/11/12 13:42
  * @Author cly
  **/
-public class TestCountLatch {
+public class TestCountDownLatch {
     private volatile static AtomicInteger a=new AtomicInteger(0);
     private static CyclicBarrier cyclicBarrier=new CyclicBarrier(6,() -> {
         System.out.println("裁判员发号施令啦！！！");

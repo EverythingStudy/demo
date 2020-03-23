@@ -1,21 +1,67 @@
 package com.example.demo.test.util;
 
+import org.apache.commons.httpclient.util.DateParseException;
+import org.apache.commons.httpclient.util.DateUtil;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * @Author cly
  * @Description //TODO 时间工具类
+ *
+ * yyyy：年
+ *
+ * MM：月
+ *
+ * dd：日
+ *
+ * hh：1~12小时制(1-12)
+ *
+ * HH：24小时制(0-23)
+ *
+ * mm：分
+ *
+ * ss：秒
+ *
+ * S：毫秒
+ *
+ * E：星期几
+ *
+ * D：一年中的第几天
+ *
+ * F：一月中的第几个星期(会把这个月总共过的天数除以7)
+ *
+ * w：一年中的第几个星期
+ *
+ * W：一月中的第几星期(会根据实际情况来算)
+ *
+ * a：上下午标识
+ *
+ * k：和HH差不多，表示一天24小时制(1-24)。
+ *
+ * K：和hh差不多，表示一天12小时制(0-11)。
+ *
+ * z：表示时区
+ *
  * @Date 13:25 2019/11/27
  * @Param 
  * @return 
  **/
 
 public class DateTypeUtility {
+
+	Logger logger= LoggerFactory.getLogger(DateTypeUtility.class.getName());
 	private static Pattern pattern = Pattern.compile("[0-9]*");
 	public static boolean isNumeric(String str) {
 		Matcher isNum = pattern.matcher(str);
@@ -139,7 +185,88 @@ public class DateTypeUtility {
 		String time = DateToStr(d, "yyyy-MM-dd HH:mm:ss");
 		return time;
 	}
-	public static void main(String[] args) {
-
+	/**
+	 * @Author cly
+	 * @Description //TODO lennon
+	 *
+	 * yyyy：年
+	 *
+	 * MM：月
+	 *
+	 * dd：日
+	 *
+	 * hh：1~12小时制(1-12)
+	 *
+	 * HH：24小时制(0-23)
+	 *
+	 * mm：分
+	 *
+	 * ss：秒
+	 *
+	 * S：毫秒
+	 *
+	 * E：星期几
+	 *
+	 * D：一年中的第几天
+	 *
+	 * F：一月中的第几个星期(会把这个月总共过的天数除以7)
+	 *
+	 * w：一年中的第几个星期
+	 *
+	 * W：一月中的第几星期(会根据实际情况来算)
+	 *
+	 * a：上下午标识
+	 *
+	 * k：和HH差不多，表示一天24小时制(1-24)。
+	 *
+	 * K：和hh差不多，表示一天12小时制(0-11)。
+	 *
+	 * z：表示时区
+	 *
+	 * yyyy：年
+	 *
+	 * MM：月
+	 *
+	 * dd：日
+	 *
+	 * hh：1~12小时制(1-12)
+	 *
+	 * HH：24小时制(0-23)
+	 *
+	 * mm：分
+	 *
+	 * ss：秒
+	 *
+	 * S：毫秒
+	 *
+	 * E：星期几
+	 *
+	 * D：一年中的第几天
+	 *
+	 * F：一月中的第几个星期(会把这个月总共过的天数除以7)
+	 *
+	 * w：一年中的第几个星期
+	 *
+	 * W：一月中的第几星期(会根据实际情况来算)
+	 *
+	 * a：上下午标识
+	 *
+	 * k：和HH差不多，表示一天24小时制(1-24)。
+	 *
+	 * K：和hh差不多，表示一天12小时制(0-11)。
+	 *
+	 * z：表示时区
+	 *
+	 * @Date 9:51 2020/2/24
+	 * @Param []
+	 * @return void
+	 **/
+	@Test
+	public void date(){
+		logger.info(DateUtil.formatDate(new Date(),"yyyy-MM-dd"));
+		logger.info(DateUtil.formatDate(new Date(),"D"));
+		logger.info(TimeUnit.HOURS.toString());
+		DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		logger.info(dateTimeFormatter.format(LocalDateTime.now()));
 	}
 }

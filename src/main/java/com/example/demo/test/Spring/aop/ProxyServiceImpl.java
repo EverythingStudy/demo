@@ -10,8 +10,9 @@ import org.springframework.stereotype.Service;
 @Service(value = "aop1")
 public class ProxyServiceImpl implements ProxyService {
     @Override
-    public void getName() {
+    public String getName() {
         System.out.println("获取name接口");
+        return "王文娜";
     }
 
     @Override

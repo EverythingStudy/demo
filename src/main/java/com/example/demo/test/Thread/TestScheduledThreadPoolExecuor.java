@@ -12,7 +12,7 @@ import java.util.concurrent.*;
 public class TestScheduledThreadPoolExecuor {
 /**
  * @Author cly
- * @Description //TODO 测试ScheduledThreadPoolExecutor
+ * @Description //TODO 测试ScheduledThreadPoolExecutor,定时任务线程池
  * @Date 14:27 2020/2/7
  * @Param []
  * @return void
@@ -28,6 +28,5 @@ public class TestScheduledThreadPoolExecuor {
                 }
             },100,10,TimeUnit.SECONDS);
         }
-       // executorService.shutdownNow();
     }
 }

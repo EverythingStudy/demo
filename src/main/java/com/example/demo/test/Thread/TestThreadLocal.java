@@ -1,5 +1,8 @@
 package com.example.demo.test.Thread;
 
+import io.swagger.models.auth.In;
+import org.junit.Test;
+
 /**
  * @Description
  * @Date 2019/8/21 12:14
@@ -23,9 +26,8 @@ public class TestThreadLocal {
             }
         }.start();
     }
-
-    public static void main(String[] args) {
-        TestThreadLocal testThreadLocal=new TestThreadLocal();
-        testThreadLocal.test();
+    @Test
+    public void testFor() {
+        test();
     }
 }

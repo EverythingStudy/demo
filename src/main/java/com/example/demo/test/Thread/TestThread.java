@@ -1,7 +1,9 @@
 package com.example.demo.test.Thread;
 
+import java.util.concurrent.Callable;
+
 /**
- * @Description
+ * @Description 实现线程的三种方式
  * @Date 2019/11/7 10:49
  * @Author cly
  **/
@@ -10,16 +12,6 @@ public class TestThread {
         Thread thread=new TestThread.MyThread();
         thread.start();
         thread.interrupt();
-//        try {
-//            thread.wait();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        try {
-//            thread.join();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         System.out.println(thread.getState());
         System.out.println(thread.isInterrupted());
     }
@@ -33,6 +25,19 @@ public class TestThread {
                 e.printStackTrace();
             }
             System.out.println(1);
+        }
+    }
+    class MyThreadTwo implements Runnable{
+        @Override
+        public void run() {
+            System.out.println("实现Runnable接口");
+        }
+    }
+    class MyThreadThreed implements Callable<String>{
+
+        @Override
+        public String call() throws Exception {
+            return "实现Callable接口";
         }
     }
 }

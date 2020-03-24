@@ -1,4 +1,4 @@
-package com.example.demo.test.Atomic;
+package com.example.demo.test.concurrent.Atomic;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

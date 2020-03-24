@@ -1,5 +1,6 @@
-package com.example.demo.test.Map;
+package com.example.demo.test.concurrent;
 
+import com.example.demo.test.concurrent.bean.User;
 import org.junit.Test;
 
 import java.util.HashMap;

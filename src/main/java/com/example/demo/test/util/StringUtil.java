@@ -21,6 +21,7 @@
 package com.example.demo.test.util;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -168,5 +169,12 @@ public class StringUtil {
 
         htmlStr = htmlStr.replaceAll(" ", ""); // 过滤
         return htmlStr.trim(); // 返回文本字符串
+    }
+
+    public static void main(String[] args) {
+        System.out.println();
+        Scanner scanner=new Scanner(System.in);
+        String sc=scanner.nextLine();
+        System.out.println(sc);
     }
 }

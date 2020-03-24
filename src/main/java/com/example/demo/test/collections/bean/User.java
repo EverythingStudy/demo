@@ -1,4 +1,4 @@
-package com.example.demo.test.Map;
+package com.example.demo.test.collections.bean;
 
 import java.util.Objects;
 

@@ -1,5 +1,6 @@
 package com.example.demo.test.collections;
 
+
 import org.junit.Test;
 
 import java.util.*;
@@ -58,6 +59,9 @@ public class TestArrayList {
                 return o1.age-o2.age;
             }
         });
+        //自定义数组排序规则
+        Person[] psersons={new TestArrayList.Person("chen",16),new TestArrayList.Person("li",10),new TestArrayList.Person("chen",15)};
+        Arrays.sort(psersons,new TestArrayList.Com());
         //lambada表达式
         Person[] arrs={new TestArrayList.Person("chen",16),new TestArrayList.Person("chen",10),new TestArrayList.Person("chen",15)};
         Arrays.sort(arrs,(Person o1,Person o2)->o1.age-o2.age);
@@ -85,7 +89,15 @@ public class TestArrayList {
                 iterator.remove();
             }
         }
-
+    }
+    //自定义排序方式
+    class Com implements Comparator{
+        @Override
+        public int compare(Object o1, Object o2) {
+            TestArrayList.Person person1= (Person) o1;
+            TestArrayList.Person person2= (Person) o2;
+            return person1.getAge()-person2.getAge();
+        }
     }
 /**
  * @Author cly

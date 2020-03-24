@@ -1,6 +1,7 @@
 package com.example.demo.test.Base;
 
 import com.example.demo.test.collections.TestArrayList;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class TestJDKStream {
         personList.add(new TestJDKStream.Person("ya",16));
     }
 
-
+    @Test
     public void streamTest(){
         List<TestJDKStream.Person> list=new ArrayList<>();
         Stream<TestJDKStream.Person> person=TestJDKStream.personList.stream().filter(s->s.getAge()==10);

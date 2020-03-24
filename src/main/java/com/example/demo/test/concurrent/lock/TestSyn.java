@@ -1,19 +1,20 @@
-package com.example.demo.test.lock;
+package com.example.demo.test.concurrent.lock;
 
 import org.junit.Test;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @Description
  * @Date 2019/8/15 15:42
  **/
 public class TestSyn {
+    ExecutorService executorService= Executors.newFixedThreadPool(2);
     @Test
     public  void testUnit() {
         while(true){
-           // Thread threadone=new Thread(new TestSyn.Writeone());
-            //threadone.start();
-            Thread threadteo=new Thread(new TestSyn.Writetwo());
-            threadteo.start();
+            executorService.submit(new TestSyn.Writetwo());
         }
     }
     class Writetwo implements Runnable{
@@ -23,13 +24,6 @@ public class TestSyn {
             testSyn.writetwo();
         }
     }
-//    class Writeone implements Runnable{
-//        TestSyn testSyn=new TestSyn();
-//        @Override
-//        public void run() {
-//            testSyn.writeone();
-//        }
-//    }
 
     public synchronized void writeone(){
         System.out.println(1);

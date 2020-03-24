@@ -1,4 +1,4 @@
-package com.example.demo.test.Map;
+package com.example.demo.test.concurrent.bean;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package com.example.demo.test.Thread;
+package com.example.demo.test.concurrent;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;

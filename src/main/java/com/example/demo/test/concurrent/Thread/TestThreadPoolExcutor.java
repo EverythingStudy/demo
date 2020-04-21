@@ -1,4 +1,4 @@
-package com.example.demo.test.Thread;
+package com.example.demo.test.concurrent.Thread;
 
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ import java.util.concurrent.*;
 public class TestThreadPoolExcutor {
     ExecutorService threadPoolExecutor = new ThreadPoolExecutor(2, 2, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(1), new RejectedExecutionHandler() {
         @Override
-        public void rejectedExecution(Runnable r, java.util.concurrent.ThreadPoolExecutor executor) {
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
             System.out.println("自定义拒绝策略");
             throw new RejectedExecutionException("自定义拒绝策略");
         }

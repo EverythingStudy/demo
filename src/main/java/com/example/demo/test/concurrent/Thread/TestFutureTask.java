@@ -1,6 +1,5 @@
-package com.example.demo.test.Thread;
+package com.example.demo.test.concurrent.Thread;
 
-import org.apache.tomcat.util.threads.InlineExecutorService;
 import org.apache.tomcat.util.threads.ThreadPoolExecutor;
 import org.junit.Test;
 

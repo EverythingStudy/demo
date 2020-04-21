@@ -1,6 +1,5 @@
-package com.example.demo.test.Thread;
+package com.example.demo.test.concurrent.Thread;
 
-import io.swagger.models.auth.In;
 import org.junit.Test;
 
 /**

@@ -7,6 +7,10 @@ import java.util.Vector;
  *
  */
 public class TestVector {
-    Vector vector=new Vector();
 
+    public void test(){
+        Vector vector=new Vector();
+        vector.add(new Object());
+        vector.remove(new Object());
+    }
 }

@@ -1,9 +1,6 @@
 package com.example.demo.test.collections;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -12,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Author cly
  **/
 public class TestHashMap {
+    //1.最普通基本的Map接口实现
     Map<String,String> hashMap=new HashMap<>();
     /**
      * @Author cly
@@ -36,7 +34,8 @@ public class TestHashMap {
         hashMap.values().iterator();
     }
 
-    public static void main(String[] args) {
+    public static void testLinkedHashMap() {
+        //2.比较大小，存入数据自动排好序--插入有顺序
         Map map=new LinkedHashMap();
         Map concurrentHashMap=new ConcurrentHashMap();
         boolean flag=true;
@@ -46,5 +45,17 @@ public class TestHashMap {
             a++;
         }
 
+    }
+
+    public void testTreeMap(){
+        //3.实现了sortedMap接口，插入的数据按照大小排序
+        Map map=new TreeMap();
+        map.put(1,new Object());
+    }
+
+    public void testHashTable(){
+        //4.线程安全所有的方法都同步
+        Map map=new Hashtable();
+        map.put(1,new Object());
     }
 }

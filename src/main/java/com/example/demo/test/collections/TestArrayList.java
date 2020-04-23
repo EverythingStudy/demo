@@ -152,4 +152,24 @@ public class TestArrayList {
          **/
         list.add("dd");
     }
+
+    /**
+     * @Author cly
+     * @Description //TODO 去重list
+     * @Date 18:15 2020/4/23
+     * @Param [list]
+     * @return void
+     **/
+    public static void removeDuplicateWithOrder(List list) {
+        Set set = new HashSet();
+        List newList = new ArrayList();
+        for (Iterator iter = list.iterator(); iter.hasNext();) {
+            Object element = iter.next();
+            if (set.add(element))
+                newList.add(element);
+        }
+        list.clear();
+        list.addAll(newList);
+        System.out.println( " remove duplicate " + list);
+    }
 }

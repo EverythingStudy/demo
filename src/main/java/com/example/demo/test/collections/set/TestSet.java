@@ -1,4 +1,4 @@
-package com.example.demo.test.collections;
+package com.example.demo.test.collections.set;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;

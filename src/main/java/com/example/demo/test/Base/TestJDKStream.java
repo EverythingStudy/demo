@@ -1,6 +1,5 @@
 package com.example.demo.test.Base;
 
-import com.example.demo.test.collections.TestArrayList;
 import org.junit.Test;
 
 import java.util.ArrayList;

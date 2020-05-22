@@ -8,9 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -40,6 +38,12 @@ public class Test {
         int j=0;
         System.out.println(++j==1);
         System.out.println(j);
+
+        String[] nameArray={"1","2"};
+        Arrays.sort(nameArray,(a,b)->a.compareToIgnoreCase(b));
+
+        List<String> lists=new ArrayList<>();
+        //List<String> idList=lists.stream().map()
     }
 
 }

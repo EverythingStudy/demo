@@ -34,7 +34,7 @@ public class SpringAop {
     public void pointCutService(){}
     @Pointcut("execution(* com.example.demo.test.Spring.aop.ProxyServiceImpl.getAge())")
     public void pointCutServiceSet(){}
-    @Pointcut("execution(* com.example.demo.test.Spring.aop.TestController.getAges())")
+    @Pointcut(value="execution(* com.example.demo.test.Spring.aop.TestController.getAges())")
     public void pointCutController(){}
     /*
      * @Author cly

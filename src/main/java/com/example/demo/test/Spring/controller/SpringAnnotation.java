@@ -1,6 +1,6 @@
 package com.example.demo.test.Spring.controller;
 
-import com.example.demo.test.Base.TestList;
+import com.example.demo.test.base.TestList;
 import com.example.demo.test.Spring.entity.AdapterApi;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

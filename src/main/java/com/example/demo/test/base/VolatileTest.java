@@ -1,13 +1,7 @@
-package com.example.demo.test.Base;
+package com.example.demo.test.base;
 
-import org.junit.Test;
-
-import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Description

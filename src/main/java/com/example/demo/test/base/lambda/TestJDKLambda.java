@@ -1,4 +1,4 @@
-package com.example.demo.test.Base;
+package com.example.demo.test.base.lambda;
 
 /**
  * @Description JDK1.8 Lambda表达式新特性
@@ -16,4 +16,7 @@ public class TestJDKLambda {
     public void test(String s){
         String key="";
     }
+
+
+
 }

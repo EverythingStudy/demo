@@ -1,15 +1,10 @@
-package com.example.demo.test.Base;
+package com.example.demo.test.base;
 
 import com.example.demo.test.util.DBConnection;
 import com.example.demo.test.util.DateTypeUtility;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.Semaphore;
+import java.util.function.BinaryOperator;
 
 /**
  * @Description
@@ -30,8 +25,10 @@ public class Test {
         System.out.println(DateTypeUtility.DateToStr(DateTypeUtility.StrToDate(date,"yyyyMMddhhmmss"),"yyyy-MM-dd "));
         String d="";
     }
-
+    static BinaryOperator<Long> addExplicit = (Long x, Long y) -> x - y;
     public static void main(String[] args) {
+
+        System.out.println(addExplicit.apply(1L,2L));
         int k=0;
         System.out.println(k++==1);
         System.out.println(k);

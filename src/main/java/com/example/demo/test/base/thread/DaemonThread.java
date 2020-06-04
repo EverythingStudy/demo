@@ -1,4 +1,4 @@
-package com.example.demo.test.Base.thread;
+package com.example.demo.test.base.thread;
 
 /**
  * @Description 守护线程：可以随JVM的退出而停止。

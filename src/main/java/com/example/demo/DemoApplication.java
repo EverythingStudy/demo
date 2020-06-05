@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 //扫描mapper.xml文件
 @MapperScan("com.example.demo.test.Spring.dao")
-//ehcache 开启
 @EnableCaching
 public class DemoApplication {
 

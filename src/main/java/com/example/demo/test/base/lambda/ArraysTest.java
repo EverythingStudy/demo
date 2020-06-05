@@ -12,7 +12,6 @@ import java.util.Arrays;
 public class ArraysTest {
     String [] strins={"a","b","c"};
 
-
     @Test
     public void parallelPrefix(){
         Arrays.parallelPrefix(strins,(s,i)->s+i);

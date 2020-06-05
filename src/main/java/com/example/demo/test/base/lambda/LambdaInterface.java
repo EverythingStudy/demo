@@ -7,7 +7,7 @@ package com.example.demo.test.base.lambda;
  **/
 @FunctionalInterface
 public interface LambdaInterface {
-     String abstractTest();
+    String abstractTest();
     default String defaultTest(){return "接口中的default方法";}
     static String staticTest(){return "接口中的static方法";}
 }

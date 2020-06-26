@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 //bindings=@QueueBinding(),
-@RabbitListener( queues = "q_hello")
+//@RabbitListener( queues = "q_hello")
 public class RabbitMQConsumer {
-    @RabbitHandler
+    //@RabbitHandler
     public void process(String hello) {
         System.out.println("Receiver  : " + hello);
     }

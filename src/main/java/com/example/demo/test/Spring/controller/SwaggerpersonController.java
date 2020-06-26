@@ -6,6 +6,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -37,8 +40,14 @@ public class SwaggerpersonController {
     @ApiImplicitParam(name = "id", value = "用户id", defaultValue = "99", required = true)
     public Swaggerperson selectOne(@PathVariable Integer id) {
 
-        //return this.swaggerpersonService.queryById(id);
-        return new Swaggerperson();
+        long begin=System.currentTimeMillis();
+        Swaggerperson swaggerperson=new Swaggerperson();
+        swaggerperson.setName("王稳娜");
+        swaggerperson.setPhoneNum("1353027");
+        Swaggerperson swaggerpersonS=swaggerpersonService.insert(swaggerperson);
+        System.out.println("一共用了"+(System.currentTimeMillis()-begin)+"秒");
+        System.out.println(swaggerpersonS.toString());
+        return swaggerpersonS;
     }
 
 
@@ -62,4 +71,5 @@ public class SwaggerpersonController {
     public Swaggerperson updateUserById(@RequestBody Swaggerperson user) {
         return user;
     }
+
 }

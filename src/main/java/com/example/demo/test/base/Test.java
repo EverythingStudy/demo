@@ -27,7 +27,6 @@ public class Test {
     }
     static BinaryOperator<Long> addExplicit = (Long x, Long y) -> x - y;
     public static void main(String[] args) {
-
         System.out.println(addExplicit.apply(1L,2L));
         int k=0;
         System.out.println(k++==1);

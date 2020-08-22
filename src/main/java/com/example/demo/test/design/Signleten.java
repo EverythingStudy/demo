@@ -10,7 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * @Description 双重检验机制定义懒汉单例，
- * 创建单例：1.私有的构造方法 2.私有的实例对象 3.公有的获取实例方法
+ * 创建单例：1.私有的构造方法 2.私有的volatile修饰的实例对象 3.公有的获取实例方法
  * @Date 2020/2/12 17:36
  * @Author cly
  **/

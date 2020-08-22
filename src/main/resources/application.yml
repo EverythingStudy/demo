@@ -1,0 +1,46 @@
+person:
+  name: 陈林亚
+  age: 18
+  map: {"house":"保定","wife":"清远"}
+  list:
+    - sister
+    - wife
+    - mother
+chenlinya:
+  propertiers:
+    authcode: cly
+auth:
+  name: chen
+  age: 12
+  auth: test
+  enabled: true
+confige:
+  type: annotation
+  name: confige
+spring:
+  profiles:
+    active: redis
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+    dbcp2:
+      max-wait-millis: 10000
+      max-idle: 10
+      min-idle: 5
+      initial-size: 5
+  cache:
+    ehcache:
+      config: classpath:ehcache.xml
+    type: ehcache
+  rabbitmq:
+    host: 127.0.0.1
+    port: 6732
+    username: guest
+    password: guest
+
+
+
+
+

@@ -8,7 +8,7 @@ package com.example.demo.test.interfaceTest;
  * 4.实现类可以实现多个接口
  * 5.接口中的方法都是公有的
  * 6.接口中可以定义静态final的变量，实现类中Class.price使用
- * 接口保证了程序的解耦，安全
+ * 接口保证了程序的解耦，安全,易于扩展，提高效率，“对修改封闭，对扩展开发”
  * @Date 17:49 2019/12/4
  * @Param 
  * @return 

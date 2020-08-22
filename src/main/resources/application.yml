@@ -6,10 +6,20 @@ person:
     - sister
     - wife
     - mother
+chenlinya:
+  propertiers:
+    authcode: cly
+auth:
+  name: chen
+  age: 12
+  auth: test
+  enabled: true
 confige:
   type: annotation
   name: confige
 spring:
+  profiles:
+    active: redis
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8
@@ -26,9 +36,11 @@ spring:
     type: ehcache
   rabbitmq:
     host: 127.0.0.1
-
     port: 6732
     username: guest
     password: guest
+
+
+
 
 

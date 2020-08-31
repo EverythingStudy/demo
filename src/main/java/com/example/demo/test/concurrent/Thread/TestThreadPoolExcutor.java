@@ -20,7 +20,7 @@ public class TestThreadPoolExcutor {
 
     @Test
     public void testCallable() {
-        for (int i=0;i<7;i++){
+        for (int i = 0; i < 7; i++) {
             FutureTask<String> futureTask = (FutureTask<String>) threadPoolExecutor.submit(new Callable<String>() {
                 @Override
                 public String call() throws Exception {

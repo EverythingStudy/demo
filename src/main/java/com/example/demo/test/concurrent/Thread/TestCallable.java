@@ -8,11 +8,11 @@ import java.util.concurrent.*;
  **/
 public class TestCallable {
 
-    BlockingQueue QRqueue=new LinkedBlockingQueue();
-    ExecutorService QrexecutorService=new ThreadPoolExecutor(2,10,0L,TimeUnit.SECONDS,QRqueue);
+    BlockingQueue QRqueue = new LinkedBlockingQueue();
+    ExecutorService QrexecutorService = new ThreadPoolExecutor(2, 10, 0L, TimeUnit.SECONDS, QRqueue);
 
-    public boolean  C_move(String studyinstanceuid){
-        Future<Boolean> flag= QrexecutorService.submit(new Callable<Boolean>() {
+    public boolean C_move(String studyinstanceuid) {
+        Future<Boolean> flag = QrexecutorService.submit(new Callable<Boolean>() {
             @Override
             public Boolean call() {
                 try {
@@ -34,7 +34,8 @@ public class TestCallable {
         }
         return false;
     }
-    static  class CallableData implements  Callable<String>{
+
+    static class CallableData implements Callable<String> {
         @Override
         public String call() throws Exception {
             return null;
@@ -42,7 +43,7 @@ public class TestCallable {
     }
 
     public static void main(String[] args) {
-        System.out.println(5%6);
+        System.out.println(5 % 6);
 //        TestCallable.CallableData C=  new TestCallable.CallableData();
 //        FutureTask futureTask=new FutureTask(C);
 //        futureTask.cancel(true);

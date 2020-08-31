@@ -89,10 +89,10 @@ public class CompletableFutureTest {
     /**
      * @return void
      * @Author cly
-     * @Description //TODO thenApplyAsync(Function<? super T,? extends U> fn)--执行任务A,A返回值当作任务B的参数，同时任务B有返回值
-     * //TODO public <U> CompletableFuture<U>     thenApply(Function<? super T,? extends U> fn)
-     * //TODO public <U> CompletableFuture<U>     thenApplyAsync(Function<? super T,? extends U> fn)
-     * //TODO public <U> CompletableFuture<U>     thenApplyAsync(Function<? super T,? extends U> fn, Executor executor)
+     * @Description // TODO thenApplyAsync(Function<? super T,? extends U> fn)--执行任务A,A返回值当作任务B的参数，同时任务B有返回值
+     * // TODO public <U> CompletableFuture<U>     thenApply(Function<? super T,? extends U> fn)
+     * // TODO public <U> CompletableFuture<U>     thenApplyAsync(Function<? super T,? extends U> fn)
+     * // TODO public <U> CompletableFuture<U>     thenApplyAsync(Function<? super T,? extends U> fn, Executor executor)
      * @Date 13:53 2020/3/18
      * @Param []
      **/
@@ -340,7 +340,7 @@ public class CompletableFutureTest {
      * @Description //TODO public static CompletableFuture<Void>  allOf(CompletableFuture<?>... cfs)
      * //TODO public static CompletableFuture<Object>  anyOf(CompletableFuture<?>... cfs)
      * <p>
-     *    allOf:当所有的CompletableFuture都执行完后执行计算
+     * allOf:当所有的CompletableFuture都执行完后执行计算
      * <p>
      * 　　anyOf:最快的那个CompletableFuture执行完之后执行计算
      * <p>

@@ -129,4 +129,21 @@ public class TestJDKStream {
             this.age = age;
         }
     }
+
+    /**
+     * @Author cly
+     * @Description //TODO 替换集合中数据
+     * @Date 11:06 2020/6/29
+     * @Param []
+     * @return void
+     **/
+    @Test
+    public void exchangeTest(){
+        //personList.stream().map(person -> { person.setName("chenlinya");return getP(person);}).forEach(person -> System.out.println(person.getName()));
+        personList.stream().map(person -> getP(person)).forEach(person -> System.out.println(person.getName()));
+    }
+    public Person getP(Person person){
+        person.setName("chenlinya");
+        return person;
+    }
 }

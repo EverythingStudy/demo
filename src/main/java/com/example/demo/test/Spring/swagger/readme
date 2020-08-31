@@ -1,0 +1,125 @@
+swagger集成springBoot:
+一、依赖
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger2</artifactId>
+    <version>2.9.2</version>
+</dependency>
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>2.9.2</version>
+</dependency>
+二、Swagger2的配置也是比较容易的，在项目创建成功之后，只需要开发者自己提供一个Docket的Bean即可
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+/**
+ * @Description
+ * @Date 2020/3/5 8:55
+ * @Author cly
+ **/
+//注解开启 swagger2 功能
+//这里提供一个配置类，首先通过@EnableSwagger2注解启用Swagger2
+// 然后配置一个Docket Bean，这个Bean中，配置映射路径和要扫描的接口的位置，在apiInfo中，
+// 主要配置一下Swagger2文档网站的信息，例如网站的title，网站的描述，联系人的信息，使用的协议等等。
+//————————————————
+@EnableSwagger2
+@Configuration
+public class Swagger2 {
+    /**
+     * 通过 createRestApi函数来构建一个DocketBean
+     * 函数名,可以随意命名,喜欢什么命名就什么命名
+     */
+    @Bean
+    public Docket createRestApi(){
+        //控制暴露出去的路径下的实例
+        //如果某个接口不想暴露,可以使用以下注解
+        //@ApiIgnore 这样,该接口就不会暴露在 swagger2 的页面下
+        return new Docket(DocumentationType.SWAGGER_2)
+                .pathMapping("/")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.nvn.controller"))
+                .paths(PathSelectors.any())
+                .build().apiInfo(apiInfo());
+
+    }
+
+    //构建 api文档的详细信息函数
+    //
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                //页面标题
+                .title("xxx 接口文档")
+                //描述
+                .description("xxx后台接口文档")
+                //版本号
+                .version("1.0")
+                //创建人
+                .contact(new Contact("啊啊啊啊","blog.csdn.net","aaa@gmail.com"))
+                .license("The Apache License")
+                .licenseUrl("http://www.baidu.com")
+                .build();
+    }
+}
+
+
+
+三、注解：
+1.@Api注解可以用来标记当前Controller的功能。
+@Api()
+用于类；表示标识这个类是swagger的资源
+tags–表示说明
+value–也是说明，可以使用tags替代
+但是tags如果有多个值，会生成多个list
+
+
+2.@ApiOperation注解用来标记一个方法的作用。
+@ApiOperation() 用于方法；表示一个http请求的操作
+value用于方法描述
+notes用于提示内容
+tags可以重新分组（视情况而用）
+
+
+3.@ApiImplicitParam注解用来描述一个参数，可以配置参数的中文含义，也可以给参数设置默认值，这样在接口测试的时候可以避免手动输入。
+
+@ApiImplicitParam注解中虽然可以指定参数是必填的，但是却不能代替@RequestParam(required = true)，前者的必填只是在Swagger2框架内必填，抛弃了Swagger2，这个限制就没用了，所以假如开发者需要指定一个参数必填，@RequestParam(required = true)注解还是不能省略。
+
+
+4.@ApiImplicitParams() 用于方法，包含多个 @ApiImplicitParam
+   name–参数ming
+   value–参数说明
+   dataType–数据类型
+   paramType–参数类型
+   example–举例说明
+
+5.如果参数是一个对象（例如上文的更新接口），对于参数的描述也可以放在实体类中。
+@ApiModelProperty()用于方法，字段； 表示对model属性的说明或者数据操作更改
+value–字段说明
+name–重写属性名字
+dataType–重写属性类型
+required–是否必填
+example–举例说明
+hidden–隐藏
+6.@ApiParam() 用于方法，参数，字段说明；表示对参数的添加元数据（说明或是否必填等）
+  name–参数名
+  value–参数说明
+  required–是否必填
+
+7.@ApiModel()用于类 ；表示对类进行说明，用于参数用实体类接收
+  value–表示对象名
+  description–描述
+  都可省略
+
+8.@ApiIgnore()用于类或者方法上，可以不被swagger显示在页面上
+  比较简单, 这里不做举例
+
+

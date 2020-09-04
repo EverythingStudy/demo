@@ -39,8 +39,7 @@ spring:
     port: 6732
     username: guest
     password: guest
-
-
-
-
-
+##mybatis配置
+mybatis:
+  configuration:
+    cache-enabled: true #开启二级缓存

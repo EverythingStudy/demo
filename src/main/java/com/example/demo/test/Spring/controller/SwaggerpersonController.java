@@ -39,7 +39,6 @@ public class SwaggerpersonController {
     @ApiOperation(value = "获取person")
     @ApiImplicitParam(name = "id", value = "用户id", defaultValue = "99", required = true)
     public Swaggerperson selectOne(@PathVariable Integer id) {
-
         long begin=System.currentTimeMillis();
         Swaggerperson swaggerperson=new Swaggerperson();
         swaggerperson.setName("王稳娜");

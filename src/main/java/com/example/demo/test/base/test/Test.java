@@ -2,6 +2,7 @@ package com.example.demo.test.base.test;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.json.JSONException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +27,10 @@ public class Test {
       map.put("a","b");
       JSONObject jsonObject=new JSONObject();
       System.out.println(JSON.toJSONString(map));
-      System.out.println(new org.json.JSONObject(JSON.toJSONString(map)));
+        try {
+            System.out.println(new org.json.JSONObject(JSON.toJSONString(map)));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

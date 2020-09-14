@@ -17,21 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @MapperScan("com.example.demo.test.Spring.dao")////扫描mapper.xml文件
 @EnableCaching
-@RestController
 public class DemoApplication {
-
-    private static  ConfigurableApplicationContext context;
-    private static String[] args;
     public static void main(String[] args) {
-        DemoApplication.args = args;
-        DemoApplication.context=SpringApplication.run(DemoApplication.class, args);
-    }
-    @RequestMapping(value = "restart",method = RequestMethod.GET)
-    public void restart(){
-       Thread thread=new Thread(()->{
-           DemoApplication.context.close();
-           DemoApplication.context=SpringApplication.run(DemoApplication.class,DemoApplication.args);
-       });
-       thread.start();
+        SpringApplication.run(DemoApplication.class, args);
     }
 }

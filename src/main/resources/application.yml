@@ -19,7 +19,7 @@ confige:
   name: confige
 spring:
   profiles:
-    active: redis
+    active: jedis
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8
@@ -43,3 +43,5 @@ spring:
 mybatis:
   configuration:
     cache-enabled: true #开启二级缓存
+  mapper-locations: classpath:/mapper/*Dao.xml
+

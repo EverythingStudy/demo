@@ -113,7 +113,7 @@ public class RedisService {
     /**
      * @return boolean
      * @Author cly
-     * @Description //TODO 普通缓存放入并设置时间
+     * @Description //TODO String 字符串,如果不存在放入并设置过期时间
      * @Date 18:03 2020/7/1
      * @Param [key, requestId, time, timeUnit]
      **/

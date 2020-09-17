@@ -25,12 +25,18 @@ import java.util.Map;
 @Configuration
 public class RedisConfig {
     Logger logger= LoggerFactory.getLogger(this.getClass().getName());
-    //lettuce客户端连接工厂
+    /**
+     * lettuce客户端连接工厂
+     */
     @Resource
     private LettuceConnectionFactory lettuceConnectionFactory;
-    //json序列化器
+    /**
+     * json序列化器
+     */
     private Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
-    //缓存生存时间
+    /**
+     * 缓存生存时间
+     */
     private Duration timeToLive = Duration.ofDays(1);
     @Bean
     public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {
@@ -70,7 +76,7 @@ public class RedisConfig {
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
     }
-    
+
     /**
      * @Author cly
      * @Description //TODO redis键序列化使用StrngRedisSerializer
@@ -81,7 +87,13 @@ public class RedisConfig {
     private RedisSerializer<String> keySerializer() {
         return new StringRedisSerializer();
     }
-    //缓存键自动生成器
+    /**
+     * @Author cly
+     * @Description //TODO 缓存键自动生成器
+     * @Date 16:52 2020/9/17
+     * @Param
+     * @return
+     **/
     @Bean
     public KeyGenerator myKeyGenerator() {
         return (target, method, params) -> {

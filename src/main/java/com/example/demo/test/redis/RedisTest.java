@@ -14,7 +14,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Description
+ * @Description 测试redis
  * @Date 2020/7/1 10:45
  * @Author cly
  **/
@@ -30,7 +30,7 @@ public class RedisTest {
         map.put("a879","1");
         map.put("2131","23");
         //redis中添加hash
-        redisService.setHash("ccc",map);
+        redisService.setHash("dd",map);
         //多次获取hash
         Map hash=redisService.getHash("ccc");
         if (hash!=null){
@@ -64,7 +64,7 @@ public class RedisTest {
         //boolean release=redisService.releaseLock("cly",uid);
         //logger.info("releaseLock={}",release);
     }
-@Test
+    @Test
     public void test(){
         redisService.decr("clyt",1L);
     }

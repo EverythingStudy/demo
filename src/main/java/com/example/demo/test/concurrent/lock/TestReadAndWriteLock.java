@@ -1,9 +1,6 @@
 package com.example.demo.test.concurrent.lock;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.LockSupport;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.*;
 
 /**
  * @Description JUC包中的锁定义
@@ -12,8 +9,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  **/
 public class TestReadAndWriteLock {
  Lock lock=new ReentrantLock();
+
  ReentrantReadWriteLock reLock=new ReentrantReadWriteLock();
  public void test(){
+     Condition condition=lock.newCondition();
+
      LockSupport.park();
      LockSupport.unpark(Thread.currentThread());
  }

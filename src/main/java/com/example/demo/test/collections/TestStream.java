@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 
 /**
  * JDK8中stream流操作集合
+ * 将一个集合转换成Stream，这样可以对集合中的元素进行过滤去重等处理
  */
 public class TestStream {
 class Person{

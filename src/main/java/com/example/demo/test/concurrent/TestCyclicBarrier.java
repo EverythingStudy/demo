@@ -14,7 +14,7 @@ import java.util.concurrent.CyclicBarrier;
 public class TestCyclicBarrier {
 
 
-//    @Test
+//    @JunitTest
 //    public void test() {
 //        for(int i=0;i<10;i++){
 //            new Thread(()->{new ThreadTest(cyclicBarrier);});

@@ -8,45 +8,44 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * @Description
+ * @Description TODO ThreadLoacl 解决
  * @Date 2019/8/21 12:14
  **/
 public class TestThreadLocal {
-    ThreadLocal<Integer> t=new ThreadLocal<>();
-    public void test(){
-        new Thread(){
-            @Override
-            public void run() {
-                System.out.println(Thread.currentThread().getName());
-                t.set(15);
-                System.out.println(Thread.currentThread().getName()+"=="+t.get());
-            }
-        }.start();
-
-        new Thread(){
-            @Override
-            public void run() {
-                System.out.println(Thread.currentThread().getName()+"=="+t.get());
-            }
-        }.start();
-    }
+    ThreadLocal<Integer> t = new ThreadLocal<>();
     @Test
     public void testFor() {
         test();
     }
+
+    public void test() {
+        new Thread() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName());
+                t.set(15);
+                System.out.println(Thread.currentThread().getName() + "==" + t.get());
+            }
+        }.start();
+
+        new Thread() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName() + "==" + t.get());
+            }
+        }.start();
+    }
+
+
+
     @Test
-    public void testThread(){
-        ThreadLocal threadLocal=ThreadLocal.withInitial(()->new ThreadLocal());
+    public void testThread() {
+        ThreadLocal threadLocal = ThreadLocal.withInitial(() -> new ThreadLocal());
         threadLocal.set("test");
         System.out.println(threadLocal.get());
 
-        ThreadLocal<DateFormatter> dateFormatter=ThreadLocal.withInitial(()->new DateFormatter());
-        System.out.println(dateFormatter.get().print(new Date(),Locale.CHINA));
+        ThreadLocal<DateFormatter> dateFormatter = ThreadLocal.withInitial(() -> new DateFormatter());
+        System.out.println(dateFormatter.get().print(new Date(), Locale.CHINA));
         //System.out.println(dateFormatter.get().print(new Date(),new Locale(LISO_PATTERNS.)));
-    }
-
-    public void ThreadLocalTest(){
-ThreadLocal<Album> thisAlbum=ThreadLocal.withInitial(()->{return null;});
-
     }
 }

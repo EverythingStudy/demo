@@ -6,7 +6,7 @@ import com.example.demo.test.base.bean.JsonBean;
 import org.junit.Test;
 
 /**
- * @Description
+ * @Description fastJson
  * @Date 2020/5/29 9:48
  * @Author cly
  **/

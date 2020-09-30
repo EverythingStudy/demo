@@ -15,11 +15,10 @@ import java.util.concurrent.ConcurrentHashMap;
  **/
 public class ConcurrentHashMapTest {
     public static void main(String[] args) {
+        System.out.println(8>>1);
         Map map = new ConcurrentHashMap();
-
         int n = 8;
         int rs = Integer.numberOfLeadingZeros(n) | (1 << (16 - 1));
-        ;
         System.out.println(rs);
 //重写User hashCode和equels
         Map<User, String> mapString = new ConcurrentHashMap<>();
@@ -28,7 +27,6 @@ public class ConcurrentHashMapTest {
         mapString.put(user1, "1");
         mapString.put(user2, "1");
         System.out.println(mapString.toString());
-
     }
 
     @Test
@@ -69,4 +67,5 @@ public class ConcurrentHashMapTest {
         hashMap.put(3, "c");
         hashMap.keySet().iterator();
     }
+
 }

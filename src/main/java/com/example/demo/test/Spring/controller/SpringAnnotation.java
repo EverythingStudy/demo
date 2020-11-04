@@ -1,7 +1,5 @@
 package com.example.demo.test.Spring.controller;
 
-import ch.qos.logback.classic.Logger;
-import ch.qos.logback.classic.LoggerContext;
 import com.cly.starter.AuthorCodeAutoConfigrution;
 import com.example.demo.test.base.TestList;
 import com.example.demo.test.Spring.entity.AdapterApi;
@@ -40,7 +38,6 @@ public class SpringAnnotation {
         List<Map<String,Object>> list=new ArrayList<>();
         list.add(map);
         testList.setList(list);
-
         return list;
     }
 

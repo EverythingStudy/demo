@@ -1,5 +1,11 @@
 package com.example.demo.test;
 
+import com.example.demo.test.Spring.bean.Company;
+import com.example.demo.test.Spring.entity.Backup;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @Description
  * @Date 2020/8/25 18:21
@@ -10,5 +16,9 @@ public class Test {
     public void intToString(){
         String test="155";
         System.out.println(Integer.valueOf(test));
+
+    }
+    public void remov(List<Backup> list){
+        list.stream().filter(c->c.getBackupId()>20).collect(Collectors.toList());
     }
 }

@@ -41,7 +41,13 @@ public class TestCallable {
             return null;
         }
     }
+static class ThreadRunable implements Runnable{
 
+    @Override
+    public void run() {
+
+    }
+}
     public static void main(String[] args) {
         System.out.println(5 % 6);
 //        TestCallable.CallableData C=  new TestCallable.CallableData();
@@ -51,5 +57,9 @@ public class TestCallable {
 //        thread.start();
 //        TestCallable testCallable=new TestCallable();
 //        System.out.println(testCallable.C_move("s"));
+        Thread thread=new Thread(new ThreadRunable());
+        thread.start();
+        thread.interrupt();
+        //thread.isInterrupted();
     }
 }

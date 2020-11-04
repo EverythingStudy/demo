@@ -29,6 +29,7 @@ import javax.annotation.PreDestroy;
  **/
 @Configuration
 public class Company {
+
     @Bean(initMethod = "initMethod")
     @Scope(value = "singleton")
     public CompanyTestBean init(){

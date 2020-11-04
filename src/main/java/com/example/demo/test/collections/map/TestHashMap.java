@@ -1,5 +1,8 @@
 package com.example.demo.test.collections.map;
 
+import com.example.demo.test.Spring.yaml.Person;
+import org.junit.Test;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -34,28 +37,19 @@ public class TestHashMap {
         hashMap.values().iterator();
     }
 
-    public static void testLinkedHashMap() {
-        //2.比较大小，存入数据自动排好序--插入有顺序
-        Map map=new LinkedHashMap();
-        Map concurrentHashMap=new ConcurrentHashMap();
-        boolean flag=true;
-        int a=0;
-        for(;a<10;){
-            System.out.println(concurrentHashMap.put(1,"11"));
-            a++;
-        }
-
+    @Test
+    public void mapHash(){
+        Person person=new Person();
+        int h=person.hashCode();
+        System.out.println(person.hashCode());
+        System.out.println(h^ (h >>> 16));
+        int k=h^ (h >>> 16);
+        System.out.println(k&16);
     }
 
-    public void testTreeMap(){
-        //3.实现了sortedMap接口，插入的数据按照大小排序
-        Map map=new TreeMap();
-        map.put(1,new Object());
-    }
-
-    public void testHashTable(){
-        //4.线程安全所有的方法都同步
-        Map map=new Hashtable();
-        map.put(1,new Object());
+    public static void main(String[] args) {
+        Integer integer="tes".hashCode();
+        System.out.println("s1s5".hashCode()%8);
+        System.out.println("tes3".hashCode()%8);
     }
 }

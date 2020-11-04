@@ -8,10 +8,12 @@ package com.example.demo.test.base.test;
 public class Son extends Father {
     public String sonName;
     public int sonAge;
-    Son(String sonName,int sonAge){
-        super("陈林亚",sonAge);
+    private String fatherName;
+    Son(String sonName,int sonAge,String fatherName){
+        super(fatherName,sonAge);
         this.sonName=sonName;
         this.sonAge=sonAge;
+        this.fatherName=fatherName;
     }
     public String getSonName() {
         return sonName;
@@ -31,5 +33,15 @@ public class Son extends Father {
     @Override
     public void get(){
         System.out.println("son");
+    }
+
+    @Override
+    public String getFatherName() {
+        return fatherName;
+    }
+
+    @Override
+    public void setFatherName(String fatherName) {
+        this.fatherName = fatherName;
     }
 }

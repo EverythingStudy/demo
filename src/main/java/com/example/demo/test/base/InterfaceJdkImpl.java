@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
  **/
 public class InterfaceJdkImpl implements InterfaceJdk {
     Logger logger= LoggerFactory.getLogger(InterfaceJdkImpl.class);
+
     @Test
     public void testForInterface(){
         InterfaceJdk interfaceJdk=new InterfaceJdkImpl();

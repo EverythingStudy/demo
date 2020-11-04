@@ -19,6 +19,7 @@ confige:
   name: confige
 spring:
   profiles:
+    ##加载配置
     active: jedis
   datasource:
     driver-class-name: com.mysql.jdbc.Driver

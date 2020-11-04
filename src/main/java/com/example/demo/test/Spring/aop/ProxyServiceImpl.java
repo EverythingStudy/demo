@@ -12,6 +12,7 @@ public class ProxyServiceImpl implements ProxyService {
     @Override
     public String getName() {
         System.out.println("获取name接口");
+        getAge();
         return "王文娜";
     }
 

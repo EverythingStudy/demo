@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * @Description
+ * @Description 同步通知线程
  * @Date 2019/8/15 15:42
  **/
 public class TestSyn {
@@ -15,17 +15,22 @@ public class TestSyn {
     public  void testUnit() {
         while(true){
             executorService.submit(new TestSyn.Writetwo());
+            executorService.submit(new TestSyn.Writeone());
         }
     }
     class Writetwo implements Runnable{
-        TestSyn testSyn=new TestSyn();
         @Override
         public void run() {
-            testSyn.writetwo();
+            writetwo();
         }
     }
-
-    public synchronized void writeone(){
+    class Writeone implements Runnable{
+        @Override
+        public void run() {
+            writeone();
+        }
+    }
+    public  synchronized void writeone(){
         System.out.println(1);
         notify();
         try {

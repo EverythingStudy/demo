@@ -1,25 +1,29 @@
 package com.example.demo.test.Spring.yaml;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * @Description yaml配置文件中获取值
- * @ConfigurationProperties默认加载配置yml中的person值,
- * @PropertySource("classpath:application.yml") 指定加载的文件路径,默认加载application.yml
- *
+ * @Description yaml配置文件中获取值：具体可以查看ConfigeTest测试
+ * 1.@ConfigurationProperties默认加载配置yml中的person值,指定前缀
+ * 2.@PropertySource("classpath:application.yml")+@Value() 指定加载的文件路径,默认加载application.yml
+ * 3.所有加载出来的配置都可以通过Environment注入获取到：
+ *   @Autowired
+ *     private Environment environment;
+ *    String getProperty(String key);
  * @Date 2020/2/20 10:59
  * @Author cly
  **/
 @Component
-@ConfigurationProperties(prefix = "person")
-//@PropertySource("classpath:application.yml")
+//@ConfigurationProperties(prefix = "person")
+@PropertySource("classpath:application.yml")
 public class Person {
-    // @Value("稳娜")
-   // @Value("${person.name}")
+    @Value("${person.name}")
     private String name;
     private int age;
     private Map<String,String> map;

@@ -10,7 +10,7 @@ import java.util.TreeSet;
  * @Date 2020/4/21 14:57
  * @Author cly
  **/
-public class TestSet {
+public class TestTreeSet {
 
     public void test() {
         Set set = new TreeSet();

@@ -16,7 +16,7 @@ import java.util.concurrent.*;
  * @author makejava
  * @since 2020-03-05 10:57:48
  */
-@Service("swaggerpersonService")
+@Service
 public class SwaggerpersonServiceImpl implements SwaggerpersonService {
     @Resource
     private SwaggerpersonDao swaggerpersonDao;

@@ -2,7 +2,6 @@ package com.example.demo.test.design.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 
 /**
  * @Description 代理类

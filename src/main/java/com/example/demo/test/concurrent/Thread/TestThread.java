@@ -10,6 +10,8 @@ import java.util.concurrent.Callable;
 public class TestThread {
     public static void main(String[] args) {
         Thread thread=new TestThread.MyThread();
+        Thread threadRun=new Thread(new MyThread());
+        threadRun.start();
         thread.start();
         thread.interrupt();
         System.out.println(thread.getState());
@@ -23,6 +25,7 @@ public class TestThread {
                 Thread.sleep(1000000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                System.out.println(2);
             }
             System.out.println(1);
         }

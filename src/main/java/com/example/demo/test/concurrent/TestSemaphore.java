@@ -24,7 +24,7 @@ public class TestSemaphore extends Object{
                     System.out.println("=2=="+Thread.currentThread().getName());
                     //回收一个信号
                     semaphore.release();
-                } catch (InterruptedException e) {
+                } catch (InterruptedException e)  {
                     e.printStackTrace();
                 }
             }).start();

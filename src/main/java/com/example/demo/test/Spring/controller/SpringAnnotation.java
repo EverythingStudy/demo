@@ -1,7 +1,7 @@
 package com.example.demo.test.Spring.controller;
 
 import com.cly.starter.AuthorCodeAutoConfigrution;
-import com.example.demo.test.base.TestList;
+import com.example.demo.test.collections.list.TestList;
 import com.example.demo.test.Spring.entity.AdapterApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;

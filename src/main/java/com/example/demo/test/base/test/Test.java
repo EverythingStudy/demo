@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.json.JSONException;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,14 +13,15 @@ import java.util.Map;
  * @Date 2020/7/7 17:10
  * @Author cly
  **/
-public class Test {
-
+public class Test implements Serializable{
+    public static long SerializableId=1L;
     public static void main(String[] args) {
-        Father father=new Son("胡鹏磊",12);
-        Son son=new Son("胡鹏磊",12);
+        Father father=new Son("胡鹏磊",12,"陈林亚");
+        //Son son=new Father("",13);
+        Son son=new Son("胡鹏磊",12,"陈林亚");
         System.out.println(son.getFatherName());
         System.out.println(((Son) father).getSonName());
-        father.get();
+        System.out.println(father.getFatherName());;
     }
     @org.junit.Test
     public void MapToJson(){

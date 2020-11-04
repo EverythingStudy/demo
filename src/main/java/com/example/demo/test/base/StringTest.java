@@ -33,6 +33,15 @@ public class StringTest {
         set.add("cly");
         System.out.println(unSet);
         System.out.println(imSet);
+        String lock=new String("LOCK");
+        String locks=new String("LOCK");
+        System.out.println(lock==locks);
+        System.out.println(lock.equals(locks));
+        String locktt="LOCK";
+        String lockt="LOCK";
+        System.out.println(lockt.equals(locktt));
+        System.out.println(lockt==locktt);
+
     }
 
 

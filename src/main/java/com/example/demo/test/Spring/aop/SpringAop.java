@@ -30,7 +30,7 @@ public class SpringAop {
      * @return 
      **/
     
-    @Pointcut("execution(* com.example.demo.test.Spring.aop.ProxyServiceImpl.getName())")
+    @Pointcut("execution(* com.example.demo.test.Spring.aop.ProxyService.getName())")
     public void pointCutService(){}
     @Pointcut("execution(* com.example.demo.test.Spring.aop.ProxyServiceImpl.getAge())")
     public void pointCutServiceSet(){}
@@ -44,12 +44,12 @@ public class SpringAop {
      * @return 
      **/
     
-    @Before("pointCutController()")
+    //@Before("pointCutController()")
     public void before() {
         System.out.println("前置通知!");
     }
 
-    @After("pointCutServiceSet()")
+    //@After("pointCutServiceSet()")
     public void after(){
         System.out.println("后置通知!如果切点方法执行出现异常仍然执行.");
     }
@@ -67,6 +67,7 @@ public class SpringAop {
         // 执行切点(业务)方法
         try {
             Object result = pjp.proceed();
+            System.out.println("环绕通知结果=="+result);
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
@@ -80,7 +81,7 @@ public class SpringAop {
      * @return 
      **/
     
-    @AfterReturning(value = "pointCutService()",returning="name")
+    //@AfterReturning(value = "pointCutService()",returning="name")
     public void afterReturning(String name) {
         System.out.println("后置通知!如果切点方法执行出现异常就不执行.");
         System.out.println("返回值=="+name);
@@ -93,7 +94,7 @@ public class SpringAop {
      * @return 
      **/
     
-    @AfterThrowing("pointCutService()")
+    //@AfterThrowing("pointCutService()")
     public void afterThrowing() {
         System.out.println("异常通知!");
     }

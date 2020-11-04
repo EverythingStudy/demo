@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -26,7 +27,8 @@ public class SwaggerpersonController {
     /**
      * 服务对象
      */
-    @Resource
+
+    @Autowired
     private SwaggerpersonService swaggerpersonService;
 
     /**
@@ -42,7 +44,7 @@ public class SwaggerpersonController {
         long begin=System.currentTimeMillis();
         Swaggerperson swaggerperson=new Swaggerperson();
         swaggerperson.setName("王稳娜");
-        swaggerperson.setPhoneNum("1353027");
+        swaggerperson.setPhoneNum(String.valueOf(id));
         Swaggerperson swaggerpersonS=swaggerpersonService.insert(swaggerperson);
         System.out.println("一共用了"+(System.currentTimeMillis()-begin)+"秒");
         System.out.println(swaggerpersonS.toString());

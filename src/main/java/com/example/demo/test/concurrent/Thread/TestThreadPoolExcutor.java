@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Author cly
  **/
 public class TestThreadPoolExcutor {
-    ExecutorService threadPoolExecutor = new ThreadPoolExecutor(2, 2, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(1), new RejectedExecutionHandler() {
+    ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 2, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(1), new RejectedExecutionHandler() {
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
             System.out.println("自定义拒绝策略");
@@ -21,6 +21,7 @@ public class TestThreadPoolExcutor {
     AtomicInteger integer=new AtomicInteger();
     @Test
     public void testCallable() {
+
         for (int i = 0; i < 7; i++) {
             FutureTask<String> futureTask = (FutureTask<String>) threadPoolExecutor.submit(new Callable<String>() {
                 @Override

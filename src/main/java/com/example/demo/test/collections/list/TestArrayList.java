@@ -7,6 +7,9 @@ import java.util.*;
 
 /**
  * @Description ArrayList测试
+ * //TODO 1.底层数据结构为数组 2.默认长度为10，可以指定长度。如果长度不够扩容默认为1.5倍int newCapacity = oldCapacity + (oldCapacity >> 1);
+ * //TODO 3.线程不安全
+ * //todo
  * @Date 2019/11/24 16:45
  * @Author cly
  **/
@@ -144,16 +147,9 @@ public class TestArrayList {
         }
     }
 
+    @Test
     public void listMethod() {
-        List<String> list = new ArrayList<>();
-        /*
-         * @Author cly
-         * @Description //TODO list默认数组长度为10,当添加元素时会先校验是否超过默认设置长度，如果超过了扩容为oldsize>>1+oldsize  两倍
-         * @Date 14:37 2019/11/27
-         * @Param []
-         * @return void
-         **/
-        list.add("dd");
+        System.out.println(4 >> 1);
     }
 
     /**
@@ -174,5 +170,57 @@ public class TestArrayList {
         list.clear();
         list.addAll(newList);
         System.out.println(" remove duplicate " + list);
+    }
+
+    public static void main(String[] args) {
+        //数组转化为集合
+        String[] String0 = {"1", "2"};
+        List list1 = Arrays.asList(String0);
+        System.out.println(list1);
+        //两个数组合并
+        String[] a = {"1", "2", "3"};
+        String[] b = {"1", "4", "5"};
+        String[] c = new String[a.length + b.length];
+        //Arrays.c
+        System.arraycopy(a, 0, c, 0, a.length);
+        System.arraycopy(b, 0, c, a.length, b.length);
+        for (String s : c) {
+            System.out.println(s);
+        }
+        //两个list集合合并
+        List<Integer> e = new ArrayList<Integer>();
+        List<Integer> f = new ArrayList<Integer>();
+        e.add(1);
+        e.add(2);
+        e.add(3);
+        e.add(3);
+        f.add(4);
+        f.add(5);
+        f.add(6);
+        //e.addAll(f);
+        System.out.println("e:" + e);
+        //两个list集合合并为有序
+        List list = sort(e, f);
+        System.out.println("list:" + list);
+    }
+
+    public static List sort(List<Integer> e, List<Integer> f) {
+        int i = 0;
+        int j = 0;
+        List<Integer> list = new ArrayList<>();
+        while (i < e.size() && j < f.size()) {
+            if (e.get(i) < f.get(j)) {
+                list.add(e.get(i++));
+            } else {
+                list.add(f.get(j++));
+            }
+        }
+        while (i < e.size()) {
+            list.add(e.get(i++));
+        }
+        while (j < f.size()) {
+            list.add(f.get(j++));
+        }
+        return list;
     }
 }

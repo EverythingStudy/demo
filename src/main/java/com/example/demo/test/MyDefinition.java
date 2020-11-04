@@ -15,6 +15,6 @@ import org.springframework.stereotype.Component;
 public class MyDefinition implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("启动服务时默认启动");
+        System.out.println(MyDefinition.class+"启动服务时默认启动");
     }
 }

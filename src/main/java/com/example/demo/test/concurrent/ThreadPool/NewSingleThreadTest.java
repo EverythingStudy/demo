@@ -10,6 +10,6 @@ import java.util.concurrent.Executors;
 public class NewSingleThreadTest {
 
     public static void main(String[] args) {
-        Executors.newFixedThreadPool(2);
+        Executors.newSingleThreadExecutor();
     }
 }

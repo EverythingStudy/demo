@@ -20,7 +20,7 @@ public class ConcurrentHashMapTest {
         int n = 8;
         int rs = Integer.numberOfLeadingZeros(n) | (1 << (16 - 1));
         System.out.println(rs);
-//重写User hashCode和equels
+        //重写User hashCode和equels
         Map<User, String> mapString = new ConcurrentHashMap<>();
         User user1 = new User("陈林亚", "186012");
         User user2 = new User("陈林亚", "1860121");
@@ -35,7 +35,6 @@ public class ConcurrentHashMapTest {
         ConcurrentHashMap.put(1, "a");
         ConcurrentHashMap.put(2, "b");
         ConcurrentHashMap.put(3, "c");
-        ConcurrentHashMap.keySet().iterator();
         Iterator iterator = ConcurrentHashMap.keySet().iterator();
         for (; iterator.hasNext(); ) {
             ConcurrentHashMap.remove(2);

@@ -11,9 +11,12 @@ import java.util.concurrent.locks.*;
  **/
 public class TestReadAndWriteLock {
     Lock lock = new ReentrantLock();
-
     ReadWriteLock reLock = new ReentrantReadWriteLock();
+    StampedLock stampedLock=new StampedLock();
 
+    public void testStamped(){
+        stampedLock.readLock();
+    }
     public void test() {
 
         Condition condition = lock.newCondition();

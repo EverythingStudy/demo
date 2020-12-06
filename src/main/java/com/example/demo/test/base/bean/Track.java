@@ -8,7 +8,7 @@ package com.example.demo.test.base.bean;
 public class Track {
     private String name;
     private int length;
-    public Track(String name, int length){
+    public Track(String name, Integer length){
         this.name=name;
         this.length=length;
     }
@@ -26,5 +26,20 @@ public class Track {
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.valueOf(length).hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(length);
     }
 }

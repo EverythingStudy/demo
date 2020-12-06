@@ -15,7 +15,7 @@ import java.lang.reflect.InvocationTargetException;
  * @Author cly
  **/
 public class Signleten {
-    Logger logger= LoggerFactory.getLogger(Signleten.class.getName());
+
     private Signleten(){}
     private volatile static Signleten signleten=null;
     public static Signleten getSignleten(){

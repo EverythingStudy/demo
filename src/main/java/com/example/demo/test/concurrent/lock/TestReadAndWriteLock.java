@@ -62,6 +62,7 @@ public class TestReadAndWriteLock {
         }
     //}
     public static void main(String[] args) {
+        System.out.println(1 >> 16);
         ExecutorService threadPoolExecutor=Executors.newCachedThreadPool();
         TestReadAndWriteLock t=new TestReadAndWriteLock();
         for(int i=0;i<10;i++){

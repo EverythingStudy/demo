@@ -1,6 +1,7 @@
 package com.example.demo.test.Spring.aop;
 
 import com.example.demo.test.Spring.SpringContextUtils;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,7 @@ import javax.annotation.Resource;
  * @Author cly
  **/
 @RestController
-public class TestController {
+public class TestController implements BeanPostProcessor {
     @Resource(name = "aop1")
     ProxyService ProxyService;
     @RequestMapping("/test")

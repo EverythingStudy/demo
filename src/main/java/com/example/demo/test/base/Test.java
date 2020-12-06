@@ -1,5 +1,6 @@
 package com.example.demo.test.base;
 
+import com.example.demo.test.base.bean.Track;
 import com.example.demo.test.util.DBConnection;
 import com.example.demo.test.util.DateTypeUtility;
 
@@ -27,6 +28,15 @@ public class Test {
     }
     static BinaryOperator<Long> addExplicit = (Long x, Long y) -> x - y;
     public static void main(String[] args) {
+        Track track1=new Track("zhang",1);
+        Track track2=new Track("zhang",2);
+        HashMap<Object,Object> hashMap=new HashMap();
+        hashMap.put(track1,"se");
+        hashMap.put(track2,"se");
+        for (Object key : hashMap.keySet()) {
+            System.out.println(hashMap.get(key));
+        }
+
         System.out.println(addExplicit.apply(1L,2L));
         int k=0;
         System.out.println(k++==1);

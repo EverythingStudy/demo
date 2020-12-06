@@ -6,11 +6,13 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @Description java自身线程池，自定义拒绝策略
+ * @Description TODO java自身线程池，自定义拒绝策略
+ * TODO 1.提交线程submit方式返回FutureTask对象可以取消线程。
+ * TODO 2.定义Runnable线程可以使用1.8中的lambda表达式创建
  * @Date 2019/8/28 10:53
  * @Author cly
  **/
-public class TestThreadPoolExcutor {
+public class TestThreadPoolExecutor {
     ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 2, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue<>(1), new RejectedExecutionHandler() {
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
@@ -48,17 +50,27 @@ public class TestThreadPoolExcutor {
     @Test
    public void testRunnable(){
         for (int i = 0; i < 7; i++) {
+
             FutureTask<String> futureTask = (FutureTask<String>) threadPoolExecutor.submit(new Runnable() {
                 @Override
                 public void run() {
                     //待处理业务逻辑
                     System.out.println("待处理业务逻辑");
-                    Thread.currentThread().isInterrupted();
+                    try {
+                        Thread.sleep(1000*10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    //Thread.currentThread().isInterrupted();
                     //Thread.sleep(1000);
                     //throw new Exception();
                     //return "返回值"+integer.getAndIncrement();
                 }
             });
+            threadPoolExecutor.execute(()->{
+                System.out.println("lambad表达式");
+            });
+            futureTask.cancel(true);
             try {
                 System.out.println(futureTask.get());
             } catch (InterruptedException e) {
@@ -88,7 +100,7 @@ public class TestThreadPoolExcutor {
     }
 
     public static void main(String[] args) {
-        //System.out.println(false&&false);
+        System.out.println(false&&true);
     }
 
 }

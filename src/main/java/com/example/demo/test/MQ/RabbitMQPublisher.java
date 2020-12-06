@@ -25,5 +25,4 @@ public class RabbitMQPublisher {
         //简单对列的情况下routingKey即为Q名
         this.rabbitTemplate.convertAndSend("q_hello", context);
     }
-
 }

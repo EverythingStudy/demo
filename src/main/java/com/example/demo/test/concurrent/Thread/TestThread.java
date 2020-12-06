@@ -9,15 +9,16 @@ import java.util.concurrent.Callable;
  **/
 public class TestThread {
     public static void main(String[] args) {
-        Thread thread=new TestThread.MyThread();
-        Thread threadRun=new Thread(new MyThread());
+        Thread thread = new TestThread.MyThread();
+        Thread threadRun = new Thread(new MyThread());
         threadRun.start();
         thread.start();
         thread.interrupt();
         System.out.println(thread.getState());
         System.out.println(thread.isInterrupted());
     }
-    static class MyThread extends Thread{
+
+    static class MyThread extends Thread {
 
         @Override
         public void run() {
@@ -30,13 +31,15 @@ public class TestThread {
             System.out.println(1);
         }
     }
-    class MyThreadTwo implements Runnable{
+
+    class MyThreadTwo implements Runnable {
         @Override
         public void run() {
             System.out.println("实现Runnable接口");
         }
     }
-    class MyThreadThreed implements Callable<String>{
+
+    class MyThreadThreed implements Callable<String> {
 
         @Override
         public String call() throws Exception {

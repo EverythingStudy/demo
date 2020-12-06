@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @ProjectName: demo
  * @Package: com.example.demo.test.base.arithmetic
  * @ClassName: mp
- * @Description
+ * @Description todo 冒泡排序
  * @Date 2020/10/14 19:14
  * @Author cly
  **/
@@ -29,7 +29,14 @@ public class mp {
         //5 6 12
         System.out.println(Arrays.toString(a));
     }
-
+    /**
+     * @Author cly
+     * @method
+     * @Description //TODO 斐波那契数列
+     * @Date 14:23 2020/11/20
+     * @Param
+     * @return
+     **/
     @Test
     public void fi(){
         System.out.println(get(10));

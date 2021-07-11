@@ -19,6 +19,7 @@ public class Test {
 
     }
     public void remov(List<Backup> list){
+        System.out.println("test");
         list.stream().filter(c->c.getBackupId()>20).collect(Collectors.toList());
 
     }
